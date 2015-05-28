@@ -48,7 +48,10 @@ def update_luciferin(glowworm):
 def get_neighbours(glowworm_i, population):
 	for glowworm_j in population:
 		dij = calculate_distance(glowworm_j, glowworm_i)
-		if (dij < glowworm_i['sensor_range'])
+		if (dij < glowworm_i['sensor_range'] and dij != 0 and glowworm_i['luciferin'] < glowworm_j['luciferin']):
+			
+
+			
 
 def calculate_distance(glowworm1, glowworm2):
 	a = np.array(glowworm1['params'])
