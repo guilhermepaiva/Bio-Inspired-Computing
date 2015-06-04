@@ -3,7 +3,7 @@ import math
 import numpy as np 
 import matplotlib.pyplot as plt 
 
-nof_glowworms = 300 # population's size
+nof_glowworms = 30 # population's size
 dimension = 30 # number of parameters of the function [x1, x2, x3, ... , x30]
 rho = 0.4 # luciferin decay (0 < rho < 1)
 gamma = 0.6 # luciferin enhancement
@@ -11,7 +11,7 @@ beta = 0.08 # model constant
 nof_neighbors = 5
 step_size = 0.03
 initial_luciferin = 4
-initial_sensor_range = 120.0 # a constant, which limits the size of the neighbourhood range
+initial_sensor_range = 60.0 # a constant, which limits the size of the neighbourhood range
 max_iteration = 1000 # number of iterations (loop)
 glowworm_population = []
 min_neighbours = math.ceil(nof_glowworms*0.03)
@@ -97,7 +97,7 @@ def new_position(glowworm_i, glowworm_j):
 	vector = [x - y for x, y in zip(glowworm_j['params'], glowworm_i['params'])]
 	norm = np.linalg.norm(vector)
 	result = np.divide(vector, norm)
-	result += step_size
+	result *= step_size
 	result = np.add(result, glowworm_i['params'])
 	return result.tolist()
 
